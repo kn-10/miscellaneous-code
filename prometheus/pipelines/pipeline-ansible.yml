@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  prometheus:
+  prometheus-ansible:
     group: tools
     label_template: ${COUNT}
     materials:
@@ -17,14 +17,18 @@ pipelines:
               timeout: 0
               tasks:
                 - exec:
-                    command: terraform
-                    arguments: ["init"]
                     working_directory: prometheus
+                    command: ansible-playbook
+                    arguments: ["-i",
+                                "172.31.65.119,",
+                                "prometheus.yml",
+                                "-e",
+                                "ansible_user=centos",
+                                "-e",
+                                "ansible_password=DevOps321",]
 
-                - exec:
-                    command: terraform
-                    arguments: [ "apply", "-auto-approve" ]
-                    working_directory: prometheus
+
+
 
 
 
