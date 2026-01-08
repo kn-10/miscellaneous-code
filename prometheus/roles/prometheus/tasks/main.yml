@@ -1,3 +1,5 @@
-- name: Say Hello
-  ansible.builtin.debug:
-    msg: "Hello, Prometheus!"
+- name: Download Prometheus
+  ansible.builtin.unarchive:
+    src: https://github.com/prometheus/prometheus/releases/download/v{{prometheus_version}}/{{prometheus-prometheus_version}}.linux-amd64.tar.gz
+    dest: /opt
+    remote_src: yes
