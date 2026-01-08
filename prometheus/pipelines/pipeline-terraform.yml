@@ -27,6 +27,3 @@ pipelines:
                     working_directory: prometheus
 
 
-
-
-
