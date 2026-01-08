@@ -2,10 +2,10 @@ format_version: 10
 pipelines:
   prometheus-ansible:
     group: tools
-    label_template: ${COUNT}
+    label_template: "${COUNT}"
     materials:
       ansible:
-        git: https://github.com/kn-10/miscellaneous-code.git
+        git: https://github.com/kn-10/miscellaneous-code
         shallow_clone: false
         auto_update: true
         branch: main
@@ -13,24 +13,13 @@ pipelines:
       - apply:
           fetch_materials: true
           jobs:
-            deployment:
+            apply:
               timeout: 0
               tasks:
                 - exec:
                     working_directory: prometheus
-                    command: ansible-playbook
-                    arguments: ["-i",
-                                "172.31.65.119,",
-                                "prometheus.yml",
-                                "-e",
-                                "ansible_user=centos",
-                                "-e",
-                                "ansible_password=DevOps321",]
-
-
-
-
-
+                    command: bash
+                    arguments: [ "ansible.sh" ]
 
 
 
