@@ -11,7 +11,7 @@ pipelines:
         branch: main
     stages:
       - apply:
-          fetch_materials: true
+          fetch_materials: false
           jobs:
             deployment:
               timeout: 0
