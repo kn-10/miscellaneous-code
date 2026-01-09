@@ -35,4 +35,6 @@ scrape_configs:
 
     static_configs:
         - targets: ["10.10.1.118:9100", "10.10.2.59:9100"]
+          labels:
+              project: "expense"
 
