@@ -24,6 +24,7 @@ resource "aws_instance" "prometheus" {
     instance_type          = "t3.small"
     vpc_security_group_ids = ["sg-0a13f9496e8f730c7"]
     iam_instance_profile   = aws_iam_instance_profile.main.name
+    depends_on = [aws_iam_instance_profile.main]
     tags = {
         Name = "prometheus-server"
     }
@@ -46,7 +47,6 @@ resource "aws_route53_record" "prometheus-public" {
 }
 
 resource "aws_iam_role" "main" {
-  depends_on = [aws_instance.prometheus]
   name = "prometheus-role"
 
   assume_role_policy = jsonencode({
