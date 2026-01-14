@@ -46,7 +46,8 @@ resource "aws_route53_record" "prometheus-public" {
 }
 
 resource "aws_iam_role" "main" {
-  name               = "prometheus-role"
+  name = "prometheus-role"
+
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -65,16 +66,16 @@ resource "aws_iam_role" "main" {
     name = "parameter-store"
 
     policy = jsonencode({
-      "Version": "2012-10-17",
-      "Statement": [
+      "Version" : "2012-10-17",
+      "Statement" : [
         {
-          "Sid": "VisualEditor0",
-          "Effect": "Allow",
-          "Action": [
+          "Sid" : "VisualEditor0",
+          "Effect" : "Allow",
+          "Action" : [
             "ec2:DescribeInstances",
             "ec2:DescribeAvailabilityZones"
           ],
-          "Resource": "*"
+          "Resource" : "*"
         }
       ]
     })
@@ -85,6 +86,7 @@ resource "aws_iam_instance_profile" "main" {
   name = "prometheus-role"
   role = aws_iam_role.main.name
 }
+
 
 
 
