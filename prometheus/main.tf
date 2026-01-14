@@ -46,6 +46,7 @@ resource "aws_route53_record" "prometheus-public" {
 }
 
 resource "aws_iam_role" "main" {
+  depends_on = [aws_instance.prometheus]
   name = "prometheus-role"
 
   assume_role_policy = jsonencode({
