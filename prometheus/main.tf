@@ -5,12 +5,7 @@ terraform {
     region = "us-east-1"
 
   }
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "6.17.0"
-    }
-  }
+
 }
 
 data "aws_ami" "centos8" {
@@ -40,6 +35,14 @@ resource "aws_route53_record" "prometheus" {
 resource "aws_route53_record" "prometheus-public" {
   zone_id = "Z0266758558URTEO39RC"
   name    = "prometheus-public"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.prometheus.public_ip]
+}
+
+resource "aws_route53_record" "grafana" {
+  zone_id = "Z0266758558URTEO39RC"
+  name    = "grafana"
   type    = "A"
   ttl     = 30
   records = [aws_instance.prometheus.public_ip]
