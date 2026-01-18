@@ -12,6 +12,8 @@ pipelines:
     stages:
       - apply:
           fetch_materials: true
+          approval:
+            type: manual
           jobs:
             apply:
               timeout: 0
