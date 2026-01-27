@@ -51,7 +51,7 @@ groups:
         annotations:
           summary: CPU Usage in Critical State
 
-      - alert: Network_Packet_Queue_Or_DroppedCount
+      - alert: Network_Packet_Queue_Or_Dropped_Count
         expr: increase(node_ethtool_pps_allowance_exceeded[5m]) > 1
         for: 10m
         labels:
