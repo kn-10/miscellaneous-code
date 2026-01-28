@@ -34,13 +34,13 @@
     state: present
     key: https://rpm.grafana.com/gpg.key
 
-#- name: Check Grafana service
-#  ansible.builtin.systemd_service:
-#    name: grafana-server
-#    state: restarted
-#    enabled: yes
-#  register: out
-#  ignore_errors: true
+- name: Check Grafana service
+  ansible.builtin.systemd_service:
+    name: grafana-server
+    state: restarted
+    enabled: yes
+  register: out
+  ignore_errors: true
 
 - name: Install Grafana
   ansible.builtin.dnf:
