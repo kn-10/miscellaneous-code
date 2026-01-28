@@ -3,7 +3,7 @@ groups:
     rules:
       - alert: Nginx_Service_Down
         expr: node_systemd_unit_state{exported_name="nginx.service", state="active"} < 1
-        for: 2m
+        for: 1m
         labels:
           severity: critical
         annotations:
@@ -11,7 +11,7 @@ groups:
 
       - alert: Backend_Service_Down
         expr: node_systemd_unit_state{exported_name="backend.service", state="active"} < 1
-        for: 2m
+        for: 1m
         labels:
           severity: critical
         annotations:
