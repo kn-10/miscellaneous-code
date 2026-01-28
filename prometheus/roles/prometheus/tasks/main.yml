@@ -90,3 +90,4 @@
 
 - name: Wait for Alert Manager port
   ansible.builtin.shell: sleep 5; netstat -lntp | grep 9093
+
