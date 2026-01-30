@@ -19,10 +19,12 @@ resource "aws_instance" "elasticsearch" {
     instance_type          = "m6in.large"
     vpc_security_group_ids = ["sg-0a13f9496e8f730c7"]
     subnet_id              = "subnet-019b3ad3b9e90ad9f"
+  instance_market_options {
     spot_options {
       instance_interrupt_behavior = "stop"
-      spot_instance_type         = "persistent"
+      spot_instance_type          = "persistent"
     }
+  }
     tags = {
         Name = "elasticsearch"
     }
