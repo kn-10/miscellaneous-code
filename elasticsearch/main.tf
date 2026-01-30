@@ -39,7 +39,7 @@ resource "aws_route53_record" "elasticsearch" {
   records = [aws_instance.elasticsearch.private_ip]
 }
 
-resource "aws_route53_record" "elasticsearch" {
+resource "aws_route53_record" "elasticsearch-public" {
   zone_id = "Z0266758558URTEO39RC"
   name    = "elasticsearch-public"
   type    = "A"
