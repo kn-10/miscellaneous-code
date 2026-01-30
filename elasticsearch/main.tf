@@ -18,7 +18,7 @@ resource "aws_instance" "elasticsearch" {
     ami                    = data.aws_ami.centos8.image_id
     instance_type          = "m6in.large"
     vpc_security_group_ids = ["sg-0a13f9496e8f730c7"]
-    subnet_id              = "subnet-0e8409904c6916c58"
+    subnet_id              = "subnet-0b5eda00048daa6c0"
   instance_market_options {
     market_type = "spot"
     spot_options {
