@@ -36,6 +36,14 @@ resource "aws_route53_record" "elasticsearch" {
   name    = "elasticsearch"
   type    = "A"
   ttl     = 30
+  records = [aws_instance.elasticsearch.private_ip]
+}
+
+resource "aws_route53_record" "elasticsearch" {
+  zone_id = "Z0266758558URTEO39RC"
+  name    = "elasticsearch-public"
+  type    = "A"
+  ttl     = 30
   records = [aws_instance.elasticsearch.public_ip]
 }
 
