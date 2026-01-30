@@ -22,8 +22,8 @@ resource "aws_instance" "elasticsearch" {
   instance_market_options {
     market_type = "spot"
     spot_options {
-      instance_interrupt_behavior = "stop"
-      spot_instance_type          = "persistent"
+      instance_interruption_behavior = "stop"
+      spot_instance_type             = "persistent"
     }
   }
     tags = {
