@@ -11,7 +11,7 @@ pipelines:
         branch: main
     stages:
       - apply:
-          fetch_materials: false
+          fetch_materials: true
           approval:
             type: manual
           jobs:
