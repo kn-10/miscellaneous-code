@@ -27,7 +27,6 @@
     - logstash
     - nginx
 
-
 - name: Copy Nginx configuration file
   ansible.builtin.template:
     src: nginx.conf
