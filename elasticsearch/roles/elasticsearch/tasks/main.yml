@@ -6,6 +6,17 @@
     src: elastic.repo
     dest: /etc/yum.repos.d/elastic.repo
 
+- name: Copy Nginx configuration file
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+- name: Copy Logstash configuration file
+  ansible.builtin.template:
+    src: logstash.conf
+    dest: /etc/logstash/conf.d/logstash.conf
+
+
 - name: Install ELK
   ansible.builtin.dnf:
     name: "{{item}}"
@@ -27,7 +38,6 @@
     - logstash
     - nginx
 
-- name: Copy Nginx configuration file
-  ansible.builtin.template:
-    src: nginx.conf
-    dest: /etc/nginx/nginx.conf
+
+
+
