@@ -15,10 +15,11 @@ data "aws_ami" "centos8" {
 }
 
 resource "aws_instance" "elasticsearch" {
-    ami                    = data.aws_ami.centos8.image_id
-    instance_type          = "m6in.large"
-    vpc_security_group_ids = ["sg-0a13f9496e8f730c7"]
-    subnet_id              = "subnet-0b5eda00048daa6c0"
+    ami                         = data.aws_ami.centos8.image_id
+    instance_type               = "m6in.large"
+    vpc_security_group_ids      = ["sg-0a13f9496e8f730c7"]
+    subnet_id                   = "subnet-0b5eda00048daa6c0"
+    associate_public_ip_address = true
   instance_market_options {
     market_type = "spot"
     spot_options {
